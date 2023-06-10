@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body, html {
+      height: 100%;
+      margin: 0;
+    }
+    .clkbtn {
+      height: 50px;
+      width: 150px;
+      border-radius: 50px;
+      background-image: linear-gradient(to right,
+          rgb(255, 195, 110),
+          rgb(255, 146, 91));
+      font-size: 20px;
+      border: none;
+      cursor: pointer;
+        margin-top: 5px;
+    }
+    
+    
+    .bgimg {
+      /* background-image: url('./welcomebg.jpg'); */
+      background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
+      height: 100%;
+      background-position: center;
+      background-size: cover;
+      position: relative;
+      color: white;
+      font-family: "Courier New", Courier, monospace;
+      font-size: 25px;
+    }
+    
+    .topleft {
+      position: absolute;
+      top: 0;
+      left: 16px;
+    }
+    
+    .bottomleft {
+      position: absolute;
+      bottom: 0;
+      left: 16px;
+    }
+    
+    .middle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+    
+    hr {
+      margin: auto;
+      width: 40%;
+    }
+    </style>
+</head>
+<body>
+
+  <div class="bgimg">
+    <div class="topleft">
+      <button type="submit" id="logoutbtn" class="clkbtn">Logout</button>
+  
+    </div>
+    <div class="middle">
+      <h1 id = "WelcomeHeading">Welcome</h1>
+      <hr>
+    </div>
+    <div class="bottomleft">
+  
+    </div>
+  </div>
+  
+  <script>
+
+const data= JSON.parse(localStorage.getItem("loggeduser"))
+console.log(data[0].username)
+
+if(data!==null){
+    document.getElementById("WelcomeHeading").innerHTML = ` Welcome ${data[0].username}`
+}
+document.getElementById("logoutbtn").addEventListener("click",function(){
+	localStorage.removeItem("loggeduser")
+	window.location = "./index.html"
+})
+
+
+</script>
+  </body>
+
+</html>
+
+
+
+
+
+
+
